@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeRemote Ethiopia - Learn to Code and Work Remotely</title>
+    <meta name="description" content="Join CodeRemote Ethiopia to learn coding, find remote jobs, and build your tech career. Tailored courses for Ethiopian developers.">
+    <meta name="keywords" content="coding, remote work, Ethiopia, tech education, web development, programming">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="icon" href="./image/image.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#3B82F6',
+                        'primary-dark': '#2563EB',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Add some subtle background color transition */
+        .transition-bg {
+            transition: background-color 0.3s ease-in-out;
+        }
+        /* Glowing text effect */
+        .glowing-text {
+            background-image: linear-gradient(to left, #3B82F6, #2563EB);
+         
+            color: transparent;
+            font-weight: 700;
+            font-size: 2rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        /* Card hover effect */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 transition-colors duration-300" x-data="{ darkMode: false }" :class="{ 'dark bg-gray-900 text-white': darkMode }">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary text-black sticky top-0 z-50 transition-colors duration-300 backdrop-blur-sm bg-opacity-30" :class="{ 'dark:bg-gray-800': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img src="./image/image.png" alt="CodeRemote Logo" class="h-8 w-8 mr-2">
+                        <span class="glowing-text">LioCode</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-grow mx-4">
+                    <form class="max-w-md mx-auto">
+                        <div class="relative">
+                            <input type="search" placeholder="Search..." class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full focus:outline-none focus:border-primary" :class="{ 'dark:bg-gray-700 dark:text-white': darkMode }">
+                            <div class="absolute top-0 left-0 mt-2 ml-3">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Home</a>
+                        <a href="#about" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">About</a>
+                        <a href="#courses" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Courses</a>
+                        <a href="#jobs" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Jobs</a>
+                        <a href="#blogs" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Blog</a>
+                        <a href="#contact" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Contact</a>
+                        <button @click="darkMode = !darkMode" class="bg-gray-200 dark:bg-gray-600 rounded-full w-12 h-6 transition duration-300 ease-in-out relative">
+                            <span class="absolute left-1 top-1 bg-white dark:bg-gray-800 w-4 h-4 rounded-full transition-transform duration-300 ease-in-out" :class="{ 'transform translate-x-6': darkMode }"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <article class="py-20 bg-gray-100 transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold mb-4 text-center text-primary-dark">10 Tips for Remote Work Success</h1>
+            <div class="flex items-center mb-8">
+                <img src="./image/fut.webp" alt="Author" class="w-14 h-14 rounded-full mr-4">
+                <div>
+                    <p class="font-semibold text-lg">Author Name</p>
+                    <p class="text-sm text-gray-500">Published on December 31, 2024</p>
+                </div>
+            </div>
+            <img src="./image/tip.webp" alt="Remote Work Image" class="w-full h-auto rounded-lg mb-8 transition-transform duration-500 ease-in-out transform hover:scale-105">
+            <div class="prose max-w-none transition-colors duration-300" :class="{ 'dark:prose-invert': darkMode }">
+                <p>
+                    As the world of work continues to evolve, remote work has become a prevalent model for professionals across various fields. Whether you're new to working remotely or have been at it for a while, these tips can help you stay productive and maintain a healthy work-life balance.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">1. Set Clear Goals and Priorities</h2>
+                <p>
+                    Setting clear goals and priorities is essential for success in remote work. Use tools like task managers or to-do lists to stay organized. Identify what needs to be done first, and make sure your priorities align with company goals.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">2. Create a Dedicated Workspace</h2>
+                <p>
+                    Having a dedicated workspace helps to separate your professional and personal life. Find a spot in your home that minimizes distractions and is comfortable for long working hours.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">3. Stick to a Routine</h2>
+                <p>
+                    Consistency is key when working remotely. Try to start and finish your work at the same time each day to establish a routine that works for you. It helps you stay disciplined and manage your time effectively.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">4. Use Technology to Stay Connected</h2>
+                <p>
+                    Communication is essential when working remotely. Use video calls, chat platforms, and project management tools to stay in touch with your colleagues and supervisors. Stay proactive in reaching out when you need help or feedback.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">5. Take Regular Breaks</h2>
+                <p>
+                    Taking regular breaks during work hours can help prevent burnout. Get up, stretch, or take a short walk to refresh your mind and stay energized throughout the day.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">6. Minimize Distractions</h2>
+                <p>
+                    Working from home often means there are distractions like family, pets, or housework. Use tools like noise-canceling headphones or set specific hours when you can focus without interruptions.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">7. Stay Organized</h2>
+                <p>
+                    Staying organized is vital for managing remote work. Keep your files organized digitally and physically. Use cloud storage systems and project management software to keep everything in order.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">8. Embrace Flexibility</h2>
+                <p>
+                    Remote work offers flexibility, but it's important to stay disciplined. Make sure to balance your work hours and personal time while still meeting your deadlines and objectives.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">9. Communicate Effectively</h2>
+                <p>
+                    Communication is crucial in remote work. Be clear and concise when conveying your messages. Whether it’s an email, chat, or video call, ensure that your communication is timely and effective.
+                </p>
+                <h2 class="text-xl font-semibold mt-6 mb-4 text-primary-dark">10. Focus on Well-being</h2>
+                <p>
+                    Remote work can sometimes lead to isolation or stress. It's essential to focus on your mental and physical health. Regular exercise, meditation, or socializing can help keep you in good shape.
+                </p>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer and Subscription Section -->
+    <footer class="bg-gray-800 text-white py-12 transition-colors duration-300" :class="{ 'dark:bg-gray-900': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-4">About LioCode Ethiopia</h3>
+                    <p class="text-sm text-gray-400">Empowering Ethiopian developers with world-class coding education and remote work opportunities.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-sm text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#courses" class="text-sm text-gray-400 hover:text-white transition duration-300">Courses</a></li>
+                        <li><a href="jobs.html" class="text-sm text-gray-400 hover:text-white transition duration-300">Jobs</a></li>
+                        <li><a href="#contact" class="text-sm text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                      <!-- Facebook Icon -->
+                      <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <img src="./image/facebook.png" alt="Facebook" class="h-7 w-7">
+                    </a>
+                
+                    <!-- Telegram Icon -->
+                    <a href="https://t.me/ethiocodersinitiative" class="text-gray-400 hover:text-white transition duration-300">
+                        <img src="./image/tg.png" alt="Telegram" class="h-7 w-7">
+                    </a>
+                    <!-- YouTube Icon -->
+                    <a href="https://www.youtube.com/@LioFamily1" class="text-gray-400 hover:text-white transition duration-300">
+                        <img src="./image/you.png" alt="YouTube" class="h-7 w-7">
+                    </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h3>
+                    <form action="#" method="POST">
+                        <input type="email" placeholder="Enter your email" class="w-full py-2 px-4 bg-gray-700 text-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-dark" required>
+                        <button type="submit" class="mt-4 w-full py-2 bg-primary-dark text-white rounded-lg hover:bg-primary transition-all duration-300">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 pt-8 text-center">
+                <p class="text-sm text-gray-400">© 2024 LioCode Ethiopia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

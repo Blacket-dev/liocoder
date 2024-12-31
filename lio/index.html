@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-thiopia - Learn to Code and Work Remotely</title>
+    <meta name="description" content="Join CodeRemote Ethiopia to learn coding, find remote jobs, and build your tech career. Tailored courses for Ethiopian developers.">
+    <meta name="keywords" content="coding, remote work, Ethiopia, tech education, web development, programming">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="icon" href="./image/image.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#023e8a',
+                        'primary-dark': '#2563EB',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hero-bg-animation {
+            background: linear-gradient(-45deg, #3B82F6, #003049, #003049, #219ebc);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+         
+        .community-bg-animation
+        {
+            background: linear-gradient(-45deg, #3B82F6, #003049, #003049, #219ebc);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-[faedcd] text-gray-800 transition-colors duration-300" x-data="{ darkMode: false }" :class="{ 'dark bg-gray-900 text-white': darkMode }">
+    <!-- Navigation Bar -->
+    <nav class="bg-primary text-[f2e9e4] sticky top-0 z-50 transition-colors duration-300 backdrop-blur-sm bg-opacity-30" :class="{ 'dark:bg-gray-800': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img src="./image/image.png" alt="CodeRemote Logo" class="h-8 w-8 mr-2">
+                        <span class="text-2xl font-bold">LioCode</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-grow mx-4">
+                    <form class="max-w-md mx-auto">
+                        <div class="relative">
+                            <input type="search" placeholder="Search..." class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full focus:outline-none focus:border-primary" :class="{ 'dark:bg-gray-700 dark:text-white': darkMode }">
+                            <div class="absolute top-0 left-0 mt-2 ml-3">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#courses" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Courses</a>
+                        <a href="#jobs" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Jobs</a>
+                        <a href="#blog" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                        <a href="#contact" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        <button @click="darkMode = !darkMode" class="bg-gray-200 dark:bg-gray-600 rounded-full w-12 h-6 transition duration-300 ease-in-out relative">
+                            <span class="absolute left-1 top-1 bg-white dark:bg-gray-800 w-4 h-4 rounded-full transition-transform duration-300 ease-in-out" :class="{ 'transform translate-x-6': darkMode }"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button @click="darkMode = !darkMode" class="mr-4 bg-gray-200 dark:bg-gray-600 rounded-full w-12 h-6 transition duration-300 ease-in-out relative">
+                        <span class="absolute left-1 top-1 bg-white dark:bg-gray-800 w-4 h-4 rounded-full transition-transform duration-300 ease-in-out" :class="{ 'transform translate-x-6': darkMode }"></span>
+                    </button>
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, toggle classes based on menu state. -->
+        <div id="mobile-menu" class="md:hidden hidden animate-fade-in">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="hover:bg-primary-dark block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="hover:bg-primary-dark block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#courses" class="hover:bg-primary-dark block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+                <a href="#jobs" class="hover:bg-primary-dark block px-3 py-2 rounded-md text-base font-medium">Jobs</a>
+                <a href="#blog" class="hover:bg-primary-dark block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="#contact" class="hover:bg-primary-dark block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+            <div class="px-2 pt-2 pb-3">
+                <form>
+                    <input type="search" placeholder="Search..." class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full focus:outline-none focus:border-primary" :class="{ 'dark:bg-gray-700 dark:text-white': darkMode }">
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+<!-- Hero Section -->
+<section id="home" class="hero-bg-animation text-white min-h-screen flex items-center transition-colors duration-300 backdrop-blur-sm bg-opacity-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-fade-in">
+            Learn to Code in Ethiopia. Work Remotely. Get Paid!
+        </h1>
+        <p class="text-xl sm:text-2xl mb-8 animate-fade-in">
+            Start your coding journey today and join the world of remote jobs from Ethiopia.
+        </p>
+        <a href="#courses" class="bg-white text-primary px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 animate-fade-in">
+            Explore Courses
+        </a>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white transition-colors duration-300" :class="{ 'dark:bg-gray-900': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-8">About LioCodes</h2>
+            <p class="text-lg text-gray-700 mb-6 text-center transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">
+                We are dedicated to empowering Ethiopian developers with the skills and opportunities to thrive in the global tech industry.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-blue-100 p-6 rounded-lg transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Learn Coding</h3>
+                    <p class="transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Master in-demand programming skills through our comprehensive courses tailored for Ethiopian developers.</p>
+                </div>
+                <div class="bg-green-100 p-6 rounded-lg transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Work Remotely</h3>
+                    <p class="transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Gain the flexibility to work from anywhere in Ethiopia while contributing to global projects.</p>
+                </div>
+                <div class="bg-yellow-100 p-6 rounded-lg transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Build Networks</h3>
+                    <p class="transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Connect with fellow Ethiopian developers and international tech professionals to expand your opportunities.</p>
+                </div>
+                <div class="bg-red-100 p-6 rounded-lg transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Grow Your Career</h3>
+                    <p class="transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Access career guidance, mentorship, and job placement services tailored for the Ethiopian tech market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-gray-100 transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Courses</h2>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-700': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Web Development Fundamentals</h3>
+                    <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Learn HTML, CSS, and JavaScript to build responsive websites.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-medium text-gray-500">40 hours</span>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <span class="ml-1 text-sm font-medium text-gray-500">4.8 (120 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Learn More</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-700': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">JavaScript Mastery</h3>
+                    <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Deep dive into JavaScript, including ES6+ features and advanced concepts.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-medium text-gray-500">60 hours</span>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <span class="ml-1 text-sm font-medium text-gray-500">4.9 (200 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Learn More</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-700': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Full Stack Development</h3>
+                    <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Build complete web applications with front-end and back-end technologies.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-medium text-gray-500">80 hours</span>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <span class="ml-1 text-sm font-medium text-gray-500">4.7 (150 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Learn More</a>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="course.html" class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary-dark transition duration-300">
+                    View All Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Online Jobs Section -->
+    <section id="jobs" class="py-20 bg-white transition-colors duration-300" :class="{ 'dark:bg-gray-900': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Job Opportunities</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Frontend Developer -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Frontend Developer</h3>
+                    <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Join a dynamic team and create responsive web applications.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Apply Now</a>
+                </div>
+                <!-- Backend Developer -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Backend Developer</h3>
+                    <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Build server-side applications and APIs for scalable web services.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Apply Now</a>
+                </div>
+                <!-- Full Stack Developer -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Full Stack Developer</h3>
+                    <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Work on both front-end and back-end technologies to create complete web solutions.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Apply Now</a>
+                </div>
+                <!-- Mobile App Developer -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-800': darkMode }">
+                    <h3 class="text-xl font-semibold mb-2">Mobile App Developer</h3>
+                    <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Develop innovative mobile applications for iOS and Android platforms.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Apply Now</a>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="job.html" class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary-dark transition duration-300">
+                    View All Jobs
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-gray-100 transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Latest from Our Blog</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-700': darkMode }">
+                    <img src="./image/tip.webp" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">10 Tips for Remote Work Success</h3>
+                        <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Learn how to stay productive and maintain work-life balance while working remotely.</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Read More</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-700': darkMode }">
+                    <img src="./image/fut.webp" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">The Future of Web Development</h3>
+                        <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Explore emerging trends and technologies shaping the future of web development.</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Read More</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-xl" :class="{ 'dark:bg-gray-700': darkMode }">
+                    <img src="./image/port.png" alt="Blog post image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Building a Strong Developer Portfolio</h3>
+                        <p class="text-gray-600 mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Tips and strategies for creating an impressive portfolio to land your dream job.</p>
+                        <a href="#" class="text-primary font-semibold hover:text-primary-dark transition duration-300">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="blog.html" class="bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary-dark transition duration-300">
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class=" community-bg-animation py-20 bg-primary text-white transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8">Join Our Community</h2>
+            <p class="text-xl mb-12">
+                Connect with fellow learners, share your progress, and get support from our community of developers.
+            </p>
+            <a href="https://discord.gg/your-invite-link" target="_blank" rel="noopener noreferrer" class="bg-white text-primary px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">
+                Join Our Discord
+            </a>
+        </div>
+    </section>
+ 
+
+<!-- FAQ Section -->
+<section id="faq" class="py-20 bg-gray-100 transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+        <div class="space-y-8">
+            <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
+                <button @click="open = !open" class="flex justify-between items-center w-full">
+                    <span class="text-lg font-semibold">How long does it take to complete a course?</span>
+                    <svg :class="{'rotate-180': open}" class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" class="mt-2 transition-all duration-200" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+                    <p class="text-gray-600 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Course duration varies depending on the complexity and your dedication. On average, our courses take 8-12 weeks to complete if you dedicate 10-15 hours per week.</p>
+                </div>
+            </div>
+            <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
+                <button @click="open = !open" class="flex justify-between items-center w-full">
+                    <span class="text-lg font-semibold">Do I need prior coding experience?</span>
+                    <svg :class="{'rotate-180': open}" class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" class="mt-2 transition-all duration-200" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+                    <p class="text-gray-600 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">While some courses are designed for beginners and require no prior experience, others may have prerequisites. Check the course description for specific requirements.</p>
+                </div>
+            </div>
+            <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
+                <button @click="open = !open" class="flex justify-between items-center w-full">
+                    <span class="text-lg font-semibold">How do I find remote job opportunities?</span>
+                    <svg :class="{'rotate-180': open}" class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" class="mt-2 transition-all duration-200" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+                    <p class="text-gray-600 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">We provide job boards and networking opportunities within our community. Additionally, we offer guidance on building a strong portfolio and preparing for remote job interviews.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Contact & Support Section -->
+    <section id="contact" class="py-20 bg-gray-100 transition-colors duration-300" :class="{ 'dark:bg-gray-900': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact & Support</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Name</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-lg focus:border-primary focus:ring-primary transition-colors duration-300" :class="{ 'dark:bg-gray-800 dark:text-white': darkMode }">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Email</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-lg focus:border-primary focus:ring-primary transition-colors duration-300" :class="{ 'dark:bg-gray-800 dark:text-white': darkMode }">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-lg focus:border-primary focus:ring-primary transition-colors duration-300" :class="{ 'dark:bg-gray-800 dark:text-white': darkMode }"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Visit Us</h3>
+                    <p class="mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Adiss Abeba, Ethiopia </p>
+                    <h4 class="text-xl font-semibold mb-2">Office Hours</h4>
+                    <p class="mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Monday - Friday: 9am - 5pm</p>
+                    <h4 class="text-xl font-semibold mb-2">Contact Information</h4>
+                    <p class="mb-2 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Email: liocoder@gmail.com.com</p>
+                    <p class="mb-4 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Phone: +251 912345678</p>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer and Subscription Section -->
+     <footer class="bg-gray-800 text-white py-12 transition-colors duration-300" :class="{ 'dark:bg-gray-900': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-4">About LioCode Ethiopia</h3>
+                    <p class="text-sm text-gray-400">Empowering Ethiopian developers with world-class coding education and remote work opportunities.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-sm text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#courses" class="text-sm text-gray-400 hover:text-white transition duration-300">Courses</a></li>
+                        <li><a href="jobs.html" class="text-sm text-gray-400 hover:text-white transition duration-300">Jobs</a></li>
+                        <li><a href="#contact" class="text-sm text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <!-- Facebook Icon -->
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <img src="./image/facebook.png" alt="Facebook" class="h-7 w-7">
+                        </a>
+                    
+                        <!-- Telegram Icon -->
+                        <a href="https://t.me/ethiocodersinitiative" class="text-gray-400 hover:text-white transition duration-300">
+                            <img src="./image/tg.png" alt="Telegram" class="h-7 w-7">
+                        </a>
+                        <!-- YouTube Icon -->
+                        <a href="https://www.youtube.com/@LioFamily1" class="text-gray-400 hover:text-white transition duration-300">
+                            <img src="./image/you.png" alt="YouTube" class="h-7 w-7">
+                        </a>
+                    </div>
+                    
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h3>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Your email address" class="w-full px-3 py-2 text-gray-700 bg-gray-200 rounded-md focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary" required>
+                        <button type="submit" class="w-full px-3 py-2 text-white bg-primary rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p>&copy; 2025 LioCode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Arrow -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white p-2 rounded-full shadow-lg transition-opacity duration-300 opacity-0 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" aria-label="Back to Top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+   <script>
+
+
+
+// Mobile menu toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+// Form submission (you'll need to implement the actual form submission logic)
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Implement your form submission logic here
+    console.log('Form submitted');
+    contactForm.reset();
+});
+
+// Back to Top functionality
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 100) {
+        backToTopButton.classList.remove('opacity-0');
+        backToTopButton.classList.add('opacity-100');
+    } else {
+        backToTopButton.classList.remove('opacity-100');
+        backToTopButton.classList.add('opacity-0');
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CodeRemote Ethiopia - Learn to Code and Work Remotely</title>
+        <meta name="description" content="Join CodeRemote Ethiopia to learn coding, find remote jobs, and build your tech career. Tailored courses for Ethiopian developers.">
+        <meta name="keywords" content="coding, remote work, Ethiopia, tech education, web development, programming">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link rel="icon" href="./image/image.png">
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'primary': '#3B82F6',
+                            'primary-dark': '#2563EB',
+                        }
+                    }
+                }
+            }
+        </script>
+        <script src="script.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        </style>
+    </head>
+    <body class="bg-white text-gray-800 transition-colors duration-300" x-data="{ darkMode: false }" :class="{ 'dark bg-gray-900 text-white': darkMode }">
+        <!-- Navigation Bar -->
+        <nav class="bg-primary text-black sticky top-0 z-50 transition-colors duration-300 backdrop-blur-sm bg-opacity-30" :class="{ 'dark:bg-gray-800': darkMode }">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <a href="#" class="flex items-center">
+                            <img src="./image/image.png" alt="CodeRemote Logo" class="h-8 w-8 mr-2">
+                            <span class="text-2xl font-bold">LioCode</span>
+                        </a>
+                    </div>
+                    <div class="hidden md:block flex-grow mx-4">
+                        <form class="max-w-md mx-auto">
+                            <div class="relative">
+                                <input type="search" placeholder="Search for coding tutorials, jobs, and more..." class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-full focus:outline-none focus:border-primary" :class="{ 'dark:bg-gray-700 dark:text-white': darkMode }">
+                                <div class="absolute top-0 left-0 mt-2 ml-3">
+                                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="index.html" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#about" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            <a href="#courses" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Courses</a>
+                            <a href="#jobs" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Jobs</a>
+                            <a href="#blogs" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                            <a href="#contact" class="hover:bg-primary-dark px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                            <button @click="darkMode = !darkMode" class="bg-gray-200 dark:bg-gray-600 rounded-full w-12 h-6 transition duration-300 ease-in-out relative">
+                                <span class="absolute left-1 top-1 bg-white dark:bg-gray-800 w-4 h-4 rounded-full transition-transform duration-300 ease-in-out" :class="{ 'transform translate-x-6': darkMode }"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+    <!-- Course Details -->
+    <section class="py-20 bg-gray-100 transition-colors duration-300" :class="{ 'dark:bg-gray-800': darkMode }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold mb-8">Full Stack Web Development</h1>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <img src="./image/fullstak.png" alt="Full Stack Web Development Bootcamp" class="w-full h-auto rounded-lg mb-8">
+                    <h2 class="text-2xl font-semibold mb-4">Course Overview</h2>
+                    <p class="text-gray-600 mb-6 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">
+                        This course is designed to take you from a beginner to a full-stack developer. Learn HTML, CSS, JavaScript, and backend technologies to build dynamic, interactive websites and web applications.
+                    </p>
+                    <h2 class="text-2xl font-semibold mb-4">What You’ll Learn</h2>
+                    <ul class="list-disc list-inside text-gray-600 mb-6 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">
+                        <li>Building responsive web pages with HTML and CSS</li>
+                        <li>Creating interactive web apps with JavaScript</li>
+                        <li>Using Node.js for server-side development</li>
+                        <li>Connecting to databases using MongoDB and SQL</li>
+                    </ul>
+                    <h2 class="text-2xl font-semibold mb-4">Course Curriculum</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-md transition-colors duration-300" :class="{ 'dark:bg-gray-700': darkMode }">
+                            <h3 class="text-lg font-semibold mb-2">Module 1: Introduction to Web Development</h3>
+                            <p class="text-gray-600 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Learn the basics of HTML and CSS, and create your first static webpage.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md transition-colors duration-300" :class="{ 'dark:bg-gray-700': darkMode }">
+                            <h3 class="text-lg font-semibold mb-2">Module 2: JavaScript Fundamentals</h3>
+                            <p class="text-gray-600 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Understand the core concepts of JavaScript to create interactive content and functionality on the web.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-md transition-colors duration-300" :class="{ 'dark:bg-gray-700': darkMode }">
+                            <h3 class="text-lg font-semibold mb-2">Module 3: Backend Development with Node.js</h3>
+                            <p class="text-gray-600 transition-colors duration-300" :class="{ 'dark:text-gray-300': darkMode }">Dive into backend development, learning how to set up and manage servers using Node.js and Express.js.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-md sticky top-24 transition-colors duration-300" :class="{ 'dark:bg-gray-700': darkMode }">
+                        <h2 class="text-2xl font-semibold mb-4">Course Details</h2>
+                        <ul class="space-y-2 mb-6">
+                            <li><strong>Duration:</strong> 12 weeks</li>
+                            <li><strong>Level:</strong> Beginner to Advanced</li>
+                            <li><strong>Languages:</strong> English, Amharic</li>
+                  
+                        </ul>
+                        <div class="text-3xl font-bold mb-4">3500 br</div>
+                        <button class="w-full bg-primary text-white px-4 py-2 rounded-md text-lg font-medium hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-300">
+                            <a href="https://www.youtube.com/watch?v=your-video-id" target="_blank" class="w-full text-white">Watch Course Preview</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- Footer and Subscription Section -->
+ <footer class="bg-gray-800 text-white py-12 transition-colors duration-300" :class="{ 'dark:bg-gray-900': darkMode }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="mb-8 md:mb-0">
+                <h3 class="text-lg font-semibold mb-4">About LioCode Ethiopia</h3>
+                <p class="text-sm text-gray-400">Empowering Ethiopian developers with world-class coding education and remote work opportunities.</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                    <li><a href="#about" class="text-sm text-gray-400 hover:text-white transition duration-300">About</a></li>
+                    <li><a href="#courses" class="text-sm text-gray-400 hover:text-white transition duration-300">Courses</a></li>
+                    <li><a href="jobs.html" class="text-sm text-gray-400 hover:text-white transition duration-300">Jobs</a></li>
+                    <li><a href="#contact" class="text-sm text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                   <!-- Facebook Icon -->
+                   <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <img src="./image/facebook.png" alt="Facebook" class="h-7 w-7">
+                </a>
+            
+                <!-- Telegram Icon -->
+                <a href="https://t.me/ethiocodersinitiative" class="text-gray-400 hover:text-white transition duration-300">
+                    <img src="./image/tg.png" alt="Telegram" class="h-7 w-7">
+                </a>
+                <!-- YouTube Icon -->
+                <a href="https://www.youtube.com/@LioFamily1" class="text-gray-400 hover:text-white transition duration-300">
+                    <img src="./image/you.png" alt="YouTube" class="h-7 w-7">
+                </a>
+                </div>
+                
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h3>
+                <form class="space-y-4">
+                    <input type="email" placeholder="Your email address" class="w-full px-3 py-2 text-gray-700 bg-gray-200 rounded-md focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary" required>
+                    <button type="submit" class="w-full px-3 py-2 text-white bg-primary rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition duration-300">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-8 text-center">
+            <p>&copy; 2025 LioCode. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+</html>
